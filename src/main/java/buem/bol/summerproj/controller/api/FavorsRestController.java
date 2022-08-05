@@ -1,27 +1,25 @@
 package buem.bol.summerproj.controller.api;
 
-import buem.bol.summerproj.model.Item;
-import buem.bol.summerproj.service.item.impls.ItemServiceImpl;
+import buem.bol.summerproj.model.Favors;
+import buem.bol.summerproj.service.favors.impls.FavorsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-@RequestMapping("/api/v1/items/")
+@RequestMapping("/api/v1/favors/")
 @RestController
-public class ItemRestController {
-
+public class FavorsRestController {
     @Autowired
-    ItemServiceImpl service;
+    FavorsServiceImpl service;
 
 
     @GetMapping("")
-    public List<Item> showAll(){
+    public List<Favors> showAll(){
         return service.getAll();
     }
     @GetMapping("/{id}")
-    public Item showOne(@PathVariable String id){
+    public Favors showOne(@PathVariable String id){
         return service.get(id);
     }
 
@@ -30,14 +28,11 @@ public class ItemRestController {
         service.delete(id);
     }
     @PostMapping()
-    public Item insertOne(@RequestBody Item item){
-        return service.create(item);
+    public Favors insertOne(@RequestBody Favors favor){
+        return service.create(favor);
     }
     @PutMapping()
-    public Item updateOne(@RequestBody Item item){
-        return service.update(item);
+    public Favors updateOne(@RequestBody Favors favor){
+        return service.update(favor);
     }
-
-
-
 }

@@ -1,30 +1,45 @@
 package buem.bol.summerproj.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
-
-public class Services {
+@Document
+public class Favors {
+    @Id
     private String id;
-    private String name;
+    private FavorName favorName;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Services() {
+
+    public FavorName getFavorName() {
+        return favorName;
     }
 
-    public Services(String name, String description) {
-        this.name = name;
+    public void setFavorName(FavorName favorName) {
+        this.favorName = favorName;
+    }
+
+    public Favors(FavorName favorName, String description) {
+        this.favorName = favorName;
         this.description = description;
     }
 
-    public Services(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Favors(String id, FavorName favorName, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.name = name;
+        this.favorName = favorName;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+    public Favors() {
+    }
+
+
 
     public String getId() {
         return id;
@@ -34,13 +49,7 @@ public class Services {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getDescription() {
         return description;
@@ -70,23 +79,23 @@ public class Services {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Services services = (Services) o;
-        return getId().equals(services.getId());
+        Favors favors = (Favors) o;
+        return getId().equals(favors.getId());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId());
     }
-
     @Override
     public String toString() {
-        return "Services{" +
+        return "Favors{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", favorName=" + favorName +
                 ", description='" + description + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
     }
+
 }
