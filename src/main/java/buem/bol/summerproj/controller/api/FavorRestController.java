@@ -1,7 +1,7 @@
 package buem.bol.summerproj.controller.api;
 
-import buem.bol.summerproj.model.Favors;
-import buem.bol.summerproj.service.favors.impls.FavorsServiceImpl;
+import buem.bol.summerproj.model.Favor;
+import buem.bol.summerproj.service.favor.impls.FavorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,17 +9,17 @@ import java.util.List;
 
 @RequestMapping("/api/v1/favors/")
 @RestController
-public class FavorsRestController {
+public class FavorRestController {
     @Autowired
-    FavorsServiceImpl service;
+    FavorServiceImpl service;
 
 
     @GetMapping("")
-    public List<Favors> showAll(){
+    public List<Favor> showAll(){
         return service.getAll();
     }
     @GetMapping("/{id}")
-    public Favors showOne(@PathVariable String id){
+    public Favor showOne(@PathVariable String id){
         return service.get(id);
     }
 
@@ -28,11 +28,11 @@ public class FavorsRestController {
         service.delete(id);
     }
     @PostMapping()
-    public Favors insertOne(@RequestBody Favors favor){
+    public Favor insertOne(@RequestBody Favor favor){
         return service.create(favor);
     }
     @PutMapping()
-    public Favors updateOne(@RequestBody Favors favor){
+    public Favor updateOne(@RequestBody Favor favor){
         return service.update(favor);
     }
 }

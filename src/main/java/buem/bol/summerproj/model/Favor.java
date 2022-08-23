@@ -6,11 +6,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 import java.util.Objects;
 @Document
-public class Favors {
+public class Favor {
     @Id
     private String id;
     private FavorName favorName;
     private String description;
+
+    private double price;
+    //Добавить цену
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -23,20 +26,22 @@ public class Favors {
         this.favorName = favorName;
     }
 
-    public Favors(FavorName favorName, String description) {
-        this.favorName = favorName;
-        this.description = description;
-    }
-
-    public Favors(String id, FavorName favorName, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Favor(String id, FavorName favorName, String description, double price, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.favorName = favorName;
         this.description = description;
+        this.price = price;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Favors() {
+    public Favor(FavorName favorName, String description, double price) {
+        this.favorName = favorName;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Favor() {
     }
 
 
@@ -79,23 +84,32 @@ public class Favors {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Favors favors = (Favors) o;
-        return getId().equals(favors.getId());
+        Favor favor = (Favor) o;
+        return getId().equals(favor.getId());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId());
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Favors{" +
                 "id='" + id + '\'' +
                 ", favorName=" + favorName +
                 ", description='" + description + '\'' +
+                ", price=" + price +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
     }
-
 }

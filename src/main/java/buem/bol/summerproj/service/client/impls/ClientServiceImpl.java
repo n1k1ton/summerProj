@@ -1,47 +1,46 @@
-package buem.bol.summerproj.service.clients.impls;
-import buem.bol.summerproj.model.Clients;
-import buem.bol.summerproj.repository.clients.ClientsMongoRepository;
-import buem.bol.summerproj.service.clients.interfaces.IClientsService;
+package buem.bol.summerproj.service.client.impls;
+import buem.bol.summerproj.model.Client;
+import buem.bol.summerproj.repository.clients.ClientMongoRepository;
+import buem.bol.summerproj.service.client.interfaces.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Service
-public class ClientsServiceImpl implements IClientsService {
+public class ClientServiceImpl implements IClientService {
     private LocalDateTime now = LocalDateTime.now();
-    private List<Clients> clients = new ArrayList<>(Arrays.asList(
-            new Clients("1", "Eduard Kolchan", "Programmer", "Mykolaiv, Ukraine, Lazurna st. 15",
+    private List<Client> clients = new ArrayList<>(Arrays.asList(
+            new Client("1", "Eduard Kolchan", "Programmer", "Mykolaiv, Ukraine, Lazurna st. 15",
                     "+380957862112", now, now),
-            new Clients("2", "Alex Tulec","Sportsman", "Kyiv, Ukraine, Avtozavodska St, 24",
+            new Client("2", "Alex Tulec","Sportsman", "Kyiv, Ukraine, Avtozavodska St, 24",
                     "+380957862111", now, now),
-            new Clients("3", "Andrii Golovan","Not employed","Kyiv, Ukraine, Priorska St, 19Е",
+            new Client("3", "Andrii Golovan","Not employed","Kyiv, Ukraine, Priorska St, 19Е",
                     "+380957862112" ,now, now)
     ));
 
     @Autowired
-    ClientsMongoRepository repository;
+    ClientMongoRepository repository;
     //@PostConstruct
     void init(){
         //repository.saveAll(clients);
     }
     @Override
-    public Clients create(Clients client) {
+    public Client create(Client client) {
         client.setCreatedAt(LocalDateTime.now());
         return repository.save(client);
     }
 
     @Override
-    public Clients update(Clients client) {
+    public Client update(Client client) {
         client.setUpdatedAt(LocalDateTime.now());
         return repository.save(client);
     }
 
     @Override
-    public Clients get(String id) {
+    public Client get(String id) {
         return repository.findById(id).get();
     }
 
@@ -51,7 +50,7 @@ public class ClientsServiceImpl implements IClientsService {
     }
 
     @Override
-    public List<Clients> getAll() {
+    public List<Client> getAll() {
         return repository.findAll();
     }
 }

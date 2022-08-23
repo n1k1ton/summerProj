@@ -1,7 +1,7 @@
 package buem.bol.summerproj.controller.api;
 
-import buem.bol.summerproj.model.Clients;
-import buem.bol.summerproj.service.clients.impls.ClientsServiceImpl;
+import buem.bol.summerproj.model.Client;
+import buem.bol.summerproj.service.client.impls.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,17 +9,17 @@ import java.util.List;
 
 @RequestMapping("/api/v1/clients/")
 @RestController
-public class ClientsRestController {
+public class ClientRestController {
     @Autowired
-    ClientsServiceImpl service;
+    ClientServiceImpl service;
 
 
     @GetMapping("")
-    public List<Clients> showAll(){
+    public List<Client> showAll(){
         return service.getAll();
     }
     @GetMapping("/{id}")
-    public Clients showOne(@PathVariable String id){
+    public Client showOne(@PathVariable String id){
         return service.get(id);
     }
 
@@ -28,11 +28,11 @@ public class ClientsRestController {
         service.delete(id);
     }
     @PostMapping()
-    public Clients insertOne(@RequestBody Clients client){
+    public Client insertOne(@RequestBody Client client){
         return service.create(client);
     }
     @PutMapping()
-    public Clients updateOne(@RequestBody Clients client){
+    public Client updateOne(@RequestBody Client client){
         return service.update(client);
     }
 }

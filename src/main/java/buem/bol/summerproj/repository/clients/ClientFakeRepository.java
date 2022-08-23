@@ -1,6 +1,6 @@
 package buem.bol.summerproj.repository.clients;
 
-import buem.bol.summerproj.model.Clients;
+import buem.bol.summerproj.model.Client;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -10,27 +10,27 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public class ClientsFakeRepository {
+public class ClientFakeRepository {
     private LocalDateTime now = LocalDateTime.now();
-    private List<Clients> clients = new ArrayList<>(Arrays.asList(
-            new Clients("1", "Eduard Kolchan", "Programmer", "Mykolaiv, Ukraine, Lazurna st. 15",
+    private List<Client> clients = new ArrayList<>(Arrays.asList(
+            new Client("1", "Eduard Kolchan", "Programmer", "Mykolaiv, Ukraine, Lazurna st. 15",
                     "+380957862112", now, now),
-            new Clients("2", "Alex Tulec","Sportsman", "Kyiv, Ukraine, Avtozavodska St, 24",
+            new Client("2", "Alex Tulec","Sportsman", "Kyiv, Ukraine, Avtozavodska St, 24",
                     "+380957862111", now, now),
-            new Clients("3", "Andrii Golovan","Not employed","Kyiv, Ukraine, Priorska St, 19Е",
+            new Client("3", "Andrii Golovan","Not employed","Kyiv, Ukraine, Priorska St, 19Е",
                     "+380957862112" ,now, now)
     ));
 
-    public List<Clients> findAll(){
+    public List<Client> findAll(){
         return this.clients;
     }
 
 
-    public Clients findById(String id) {
+    public Client findById(String id) {
         return this.clients.stream().filter(client -> client.getId().equals(id)).findFirst().orElse(null);
     }
 
-    public Clients update(Clients client) {
+    public Client update(Client client) {
 
         this.deleteById(client.getId());
         client.setUpdatedAt(LocalDateTime.now());
@@ -39,11 +39,11 @@ public class ClientsFakeRepository {
     }
 
     public void deleteById(String id) {
-        Clients client = this.findById(id);
+        Client client = this.findById(id);
         this.clients.remove(client);
     }
 
-    public Clients save(Clients client) {
+    public Client save(Client client) {
         client.setId(UUID.randomUUID().toString());
         client.setCreatedAt(LocalDateTime.now());
         this.clients.add(client);

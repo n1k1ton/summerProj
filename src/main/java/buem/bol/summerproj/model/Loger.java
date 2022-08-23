@@ -1,39 +1,39 @@
 package buem.bol.summerproj.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-@Document
-public class Clients {
+
+public class Loger {
     @Id
     private String id;
     private String name;
-    private String activity;
-    private String address;
-    private String phoneNumber;
+    private Agreement agreement;
+    private double discount;
+    private LocalDateTime transactionDate;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Clients() {
-    }
 
-    public Clients(String name, String activity, String address, String phoneNumber) {
-        this.name = name;
-        this.activity = activity;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Clients(String id, String name, String activity, String address, String phoneNumber, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Loger(String id, String name, Agreement agreement, double discount, LocalDateTime transactionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
-        this.activity = activity;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.agreement = agreement;
+        this.discount = discount;
+        this.transactionDate = transactionDate;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Loger(String name, Agreement agreement, double discount, LocalDateTime transactionDate) {
+        this.name = name;
+        this.agreement = agreement;
+        this.discount = discount;
+        this.transactionDate = transactionDate;
+    }
+
+    public Loger() {
     }
 
     public String getId() {
@@ -52,28 +52,28 @@ public class Clients {
         this.name = name;
     }
 
-    public String getActivity() {
-        return activity;
+    public Agreement getAgreement() {
+        return agreement;
     }
 
-    public void setActivity(String activity) {
-        this.activity = activity;
+    public void setAgreement(Agreement agreement) {
+        this.agreement = agreement;
     }
 
-    public String getAddress() {
-        return address;
+    public double getDiscount() {
+        return discount;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDiscount(double discount) {
+        this.discount = discount;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public LocalDateTime getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setTransactionDate(LocalDateTime transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -96,8 +96,8 @@ public class Clients {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Clients clients = (Clients) o;
-        return getId().equals(clients.getId());
+        Loger loger = (Loger) o;
+        return getId().equals(loger.getId());
     }
 
     @Override
@@ -107,12 +107,12 @@ public class Clients {
 
     @Override
     public String toString() {
-        return "Clients{" +
+        return "Loger{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", activity='" + activity + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", agreement=" + agreement +
+                ", discount=" + discount +
+                ", transactionDate=" + transactionDate +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
