@@ -5,6 +5,7 @@ import buem.bol.summerproj.service.client.interfaces.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,9 +24,9 @@ public class ClientServiceImpl implements IClientService {
 
     @Autowired
     ClientMongoRepository repository;
-    //@PostConstruct
+    @PostConstruct
     void init(){
-        //repository.saveAll(clients);
+        repository.saveAll(clients);
     }
     @Override
     public Client create(Client client) {

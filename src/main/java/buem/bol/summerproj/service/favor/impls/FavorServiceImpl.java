@@ -1,29 +1,33 @@
 package buem.bol.summerproj.service.favor.impls;
 
 import buem.bol.summerproj.model.Favor;
+import buem.bol.summerproj.model.FavorName;
 import buem.bol.summerproj.repository.favors.FavorMongoRepository;
 import buem.bol.summerproj.service.favor.interfaces.IFavorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 @Service
 public class FavorServiceImpl implements IFavorService {
 
     private LocalDateTime now = LocalDateTime.now();
-//    private List<Favors> favors = new ArrayList<>(Arrays.asList(
-//            new Favors("1", FavorName.PowerOfAttorney, "Make a power of attorney", now, now),
-//            new Favors("2", FavorName.LeaseSubleaseAgreement, "Lease agreement", now, now),
-//            new Favors("3", FavorName.DocumentTranslationCertification,
-//                    "Certificate document translated from Slovak language", now, now)
-//    ));
+    private List<Favor> favors = new ArrayList<>(Arrays.asList(
+            new Favor("1", FavorName.PowerOfAttorney, "Make a power of attorney", 5, now, now),
+            new Favor("2", FavorName.LeaseSubleaseAgreement, "Lease agreement", 10, now, now),
+            new Favor("3", FavorName.DocumentTranslationCertification,
+                    "Certificate document translated from Slovak language", 20, now, now)
+    ));
 
     @Autowired
     FavorMongoRepository repository;
-    //@PostConstruct
+    @PostConstruct
     void init(){
-        //repository.saveAll(favors);
+        repository.saveAll(favors);
     }
     @Override
     public Favor create(Favor favor) {

@@ -20,6 +20,10 @@ public class ItemRestController {
     public List<Item> showAll(){
         return service.getAll();
     }
+    @PostMapping("/all")
+    public List<Item> saveAll(@RequestBody List<Item> items){
+        return service.saveAll(items);
+    }
     @GetMapping("/{id}")
     public Item showOne(@PathVariable String id){
         return service.get(id);

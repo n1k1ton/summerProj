@@ -1,3 +1,4 @@
+<#import "/spring.ftl" as spring/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +19,8 @@
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
-                <li><a href="/ui/v1/clients/" class="nav-link px-2 text-white">Clients</a></li>
-                <li><a href="/ui/v1/favors/" class="nav-link px-2 text-white">Favors</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Clients</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">Favors</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">Logs</a></li>
                 <li><a href="#" class="nav-link px-2 text-white">Agreement</a></li>
                 <li><a href="/ui/v1/items/" class="nav-link px-2 text-white">Items</a></li>
@@ -27,5 +28,24 @@
         </div>
     </div>
 </header>
+<h1>Update item</h1>
+<div>
+    <fieldset>
+        <form name="item" action="" method="post">
+            id:<@spring.formInput "form.id" "" "text" />
+            <br>
+            name:<@spring.formInput "form.name" "" "text" />
+            <br>
+            description:<@spring.formInput "form.description" "" "text" />
+            <br>
+            createdAt:<@spring.formInput "form.createdAt" "" "date" />
+            <br>
+            updatedAt:<@spring.formInput "form.updatedAt" "" "date" />
+            <br>
+            <input type="submit" value="Create">
+        </form>
+    </fieldset>
+</div>
+
 </body>
 </html>

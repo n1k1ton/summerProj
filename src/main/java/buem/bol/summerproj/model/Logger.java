@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Loger {
+public class Logger {
     @Id
     private String id;
     private String name;
@@ -16,7 +16,7 @@ public class Loger {
     private LocalDateTime updatedAt;
 
 
-    public Loger(String id, String name, Agreement agreement, double discount, LocalDateTime transactionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Logger(String id, String name, Agreement agreement, double discount, LocalDateTime transactionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.agreement = agreement;
@@ -26,14 +26,14 @@ public class Loger {
         this.updatedAt = updatedAt;
     }
 
-    public Loger(String name, Agreement agreement, double discount, LocalDateTime transactionDate) {
+    public Logger(String name, Agreement agreement, double discount, LocalDateTime transactionDate) {
         this.name = name;
         this.agreement = agreement;
         this.discount = discount;
         this.transactionDate = transactionDate;
     }
 
-    public Loger() {
+    public Logger() {
     }
 
     public String getId() {
@@ -96,8 +96,8 @@ public class Loger {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Loger loger = (Loger) o;
-        return getId().equals(loger.getId());
+        Logger logger = (Logger) o;
+        return getId().equals(logger.getId());
     }
 
     @Override
