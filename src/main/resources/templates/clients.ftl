@@ -38,9 +38,9 @@
         <h2>Clients</h2>
     </div>
 </div>
-<div class="table-center">
+<div class="table-center ">
     <div class="table-center" style="width: 100%; display: flex; align-content: center">
-        <table class="table table-dark table-striped-columns">
+        <table class="table table-dark table-striped-columns text-primary">
             <thead>
             <tr>
                 <th>ID</th>
