@@ -1,4 +1,4 @@
-package buem.bol.summerproj.repository.favors;
+package buem.bol.summerproj.repository.favor;
 
 import buem.bol.summerproj.model.Favor;
 import org.springframework.data.mongodb.repository.MongoRepository;

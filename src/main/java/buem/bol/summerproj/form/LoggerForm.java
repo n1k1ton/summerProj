@@ -1,26 +1,30 @@
-package buem.bol.summerproj.model;
+package buem.bol.summerproj.form;
 
-import org.springframework.data.annotation.Id;
+import buem.bol.summerproj.model.Agreement;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-public class Logger {
-    @Id
+public class LoggerForm {
     private String id;
     private String name;
-    private Agreement agreement;
+    private String agreement;
+
     private double sum;
     private double discount;
     private LocalDateTime transactionDate;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-
-    public Logger() {
+    public LoggerForm() {
     }
 
-    public Logger(String name, Agreement agreement, double sum, double discount, LocalDateTime transactionDate) {
+    public LoggerForm(String name, String agreement, LocalDateTime transactionDate) {
+        this.name = name;
+        this.agreement = agreement;
+        this.transactionDate = transactionDate;
+    }
+
+    public LoggerForm(String name, String agreement, double sum, double discount, LocalDateTime transactionDate) {
         this.name = name;
         this.agreement = agreement;
         this.sum = sum;
@@ -28,7 +32,7 @@ public class Logger {
         this.transactionDate = transactionDate;
     }
 
-    public Logger(String id, String name, Agreement agreement, double sum, double discount, LocalDateTime transactionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public LoggerForm(String id, String name, String agreement, double sum, double discount, LocalDateTime transactionDate, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.agreement = agreement;
@@ -37,12 +41,6 @@ public class Logger {
         this.transactionDate = transactionDate;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-    }
-
-    public Logger(String name, Agreement agreement, LocalDateTime transactionDate) {
-        this.name = name;
-        this.agreement = agreement;
-        this.transactionDate = transactionDate;
     }
 
     public String getId() {
@@ -61,11 +59,11 @@ public class Logger {
         this.name = name;
     }
 
-    public Agreement getAgreement() {
+    public String getAgreement() {
         return agreement;
     }
 
-    public void setAgreement(Agreement agreement) {
+    public void setAgreement(String agreement) {
         this.agreement = agreement;
     }
 
@@ -110,24 +108,11 @@ public class Logger {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Logger logger = (Logger) o;
-        return getId().equals(logger.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
-    @Override
     public String toString() {
-        return "Logger{" +
+        return "LoggerForm{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", agreement=" + agreement +
+                ", agreement='" + agreement + '\'' +
                 ", sum=" + sum +
                 ", discount=" + discount +
                 ", transactionDate=" + transactionDate +

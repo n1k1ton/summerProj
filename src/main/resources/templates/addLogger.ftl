@@ -14,31 +14,27 @@
 </head>
 <body>
 
-<h1 style="text-align: center">ADD CLIENT</h1>
+<h1 class="text-center">CREATE LOG</h1>
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-md-4">
             <fieldset>
-                <form name="item" action="" method="post">
-                    Name:<input class="form-control"<@spring.formInput "form.name" "" "text" />
+
+                <form name="agreement" action="" method="post" >
+                    Name:<input class="form-control" <@spring.formInput "form.name" "" "text"/>
                     <br>
-                    Activity:<input class="form-control"<@spring.formInput "form.activity" "" "text" />
+                    Agreement name:<select class="form-control" <@spring.formSingleSelect "form.agreement", names, ""/>
                     <br>
-                    Address:<input class="form-control"<@spring.formInput "form.address" "" "text" />
+                    Transaction date:<input class="form-control" <@spring.formInput "form.transactionDate" "" "datetime" />
                     <br>
-                    Phone number:<input class="form-control"<@spring.formInput "form.phoneNumber" "" "text" />
-                    <br>
-                    <input type="submit" value="Create" class="btn btn-primary" style="width: 100%">
+                    <input type="submit" value="Create" class="btn btn-dark" style="width: 100%">
                 </form>
             </fieldset>
         </div>
+
     </div>
 
 </div>
-
-
-
-
 
 </body>
 </html>

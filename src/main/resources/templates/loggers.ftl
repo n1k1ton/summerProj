@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Items</title>
+    <title>Agreements</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style>
@@ -10,17 +10,14 @@
             display: flex;
             place-content: center;
         }
-        .clientsRound{
-            border-top-right-radius: 20px;
-            border-top-left-radius: 20px;
-        }
-        .table_bot_round{
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-        }
-        body {
-            background: url("https://t3.ftcdn.net/jpg/04/09/81/22/360_F_409812204_DB79pC30Mid4zQgUwEFOMbniRhzUUk2X.jpg") no-repeat center center fixed;
+        body{
+            background: url("https://t3.ftcdn.net/jpg/04/09/81/22/360_F_409812204_DB79pC30Mid4zQgUwEFOMbniRhzUUk2X.jpg")  no-repeat center center fixed;
             background-size: cover;
+
+        }
+        .logger_heading{
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
         }
     </style>
 </head>
@@ -46,50 +43,53 @@
     </div>
 </header>
 <div class="table-center" style="display: flex; align-content: center">
-    <div class="h-100 p-5 text-bg-dark text-center border border-warning mt-5 clientsRound" style="width: 90%">
-        <h2>Clients</h2>
+    <div class="h-100 p-5 text-bg-dark text-center border border-warning mt-5 logger_heading" style="width: 84%">
+        <h2>Logger</h2>
     </div>
 </div>
 <div class="table-center ">
-    <div class="table-center" style="width: 90%; display: flex; align-content: center">
-        <table class="table table-dark table-striped-columns  table_bot_round">
+    <div class="table-center" style="width: 84%; display: flex; align-content: center">
+        <table class="table table-dark table-striped-columns ">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>NAME</th>
-                <th>ACTIVITY</th>
-                <th>ADDRESS</th>
-                <th>PHONE NUMBER</th>
-                <th>CREATED AT</th>
-                <th>UPDATED AT</th>
-                <th>UPDATE</th>
+                <th>AGREEMENT</th>
+                <th>SUM</th>
+                <th>DISCOUNT</th>
+                <th>TRANSACTION DATE</th>
+<#--                <th>CREATED AT</th>-->
+<#--                <th>UPDATED AT</th>-->
+<#--                <th>UPDATE</th>-->
                 <th>DELETE</th>
             </tr>
             </thead>
             <tbody>
-            <#list clients as client>
+            <#list loggers as logger>
                 <tr>
-                    <td>${client.id}</td>
-                    <td>${client.name}</td>
-                    <td>${client.activity}</td>
-                    <td>${client.address}</td>
-                    <td>${client.phoneNumber}</td>
-                    <td>${client.createdAt}</td>
-                    <td>${client.updatedAt?if_exists}</td>
+                    <td>${logger.id}</td>
+                    <td>${logger.name}</td>
+                    <td>${logger.agreement.name}</td>
+                    <td>${logger.sum}</td>
+                    <td>${logger.discount}</td>
+                    <td>${logger.transactionDate?if_exists}</td>
+<#--                    <td>${logger.createdAt}</td>-->
+<#--                    <td>${logger.updatedAt?if_exists}</td>-->
+<#--                    <td>-->
+<#--                        <a href="/ui/v1/loggers/edit/${logger.id}">-->
+<#--                            <button type="button" class="btn btn-warning">UPDATE</button>-->
+<#--                        </a>-->
+<#--                    </td>-->
                     <td>
-                        <a href="/ui/v1/clients/edit/${client.id}">
-                            <button type="button" class="btn btn-warning">UPDATE</button>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/ui/v1/clients/del/${client.id}">
+                        <a href="/ui/v1/loggers/del/${logger.id}">
                             <button type="button" class="btn btn-danger">DELETE</button>
                         </a>
                     </td>
                 </tr>
             </#list>
             <tr>
-                <td colspan="9"><a href="/ui/v1/clients/add" class="btn btn-primary" style="width: 100%">CREATE</a></td>
+                <td colspan="11"><a href="/ui/v1/loggers/add" class="btn btn-primary" style="width: 100%">Create log</a>
+                </td>
             </tr>
             </tbody>
         </table>

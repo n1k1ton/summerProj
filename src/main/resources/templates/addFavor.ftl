@@ -6,23 +6,34 @@
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+        body{
+            background: url("https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-and-clouds-shape_24972-1095.jpg?w=2000");
+        }
+    </style>
 </head>
 <body>
 
-<h1>Add new favor</h1>
-<div>
-    <fieldset>
-        <form name="favor" action="" method="post">
-            favorname:<@spring.formSingleSelect "form.favorName", favornames ""/>
-            <br>
-            price:<@spring.formInput "form.price" "" "number" />
-            <br>
-            description:<@spring.formInput "form.description" "" "textField" />
-            <br>
-            <input type="submit" value="Create">
-        </form>
-    </fieldset>
+<h1 style="text-align: center">ADD FAVOR</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-4">
+            <fieldset>
+                <form name="favor" action="" method="post">
+                    Favor name:<select class="form-control" <@spring.formSingleSelect "form.favorName", favornames ""/>
+                    <br>
+                    Price:<input class="form-control" <@spring.formInput "form.price" "" "number" />
+                    <br>
+                    Description:<input class="form-control" <@spring.formInput "form.description" "" "textField" />
+                    <br>
+                    <input type="submit" value="Create" class="btn btn-primary" style="width: 100%">
+                </form>
+            </fieldset>
+        </div>
+    </div>
+
 </div>
+
 
 </body>
 </html>

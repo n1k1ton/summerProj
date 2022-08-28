@@ -1,20 +1,21 @@
 package buem.bol.summerproj.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+@Document
 public class Agreement {
     @Id
     private String id;
     private String name;
     private Client client;
     private List<Favor> favors = new ArrayList<Favor>();
-    private int sum;
-    private int commission;
+    private double sum;
+    private double commission;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -23,7 +24,16 @@ public class Agreement {
     public Agreement() {
     }
 
-    public Agreement(String id, String name, Client client, List<Favor> favors, int sum, int commission, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Agreement(String name, Client client, List<Favor> favors, double sum, double commission, String description) {
+        this.name = name;
+        this.client = client;
+        this.favors = favors;
+        this.sum = sum;
+        this.commission = commission;
+        this.description = description;
+    }
+
+    public Agreement(String id, String name, Client client, List<Favor> favors, double sum, double commission, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.client = client;
@@ -33,15 +43,6 @@ public class Agreement {
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-    }
-
-    public Agreement(String name, Client client, List<Favor> favors, int sum, int commission, String description) {
-        this.name = name;
-        this.client = client;
-        this.favors = favors;
-        this.sum = sum;
-        this.commission = commission;
-        this.description = description;
     }
 
     public String getId() {
@@ -76,19 +77,19 @@ public class Agreement {
         this.favors = favors;
     }
 
-    public int getSum() {
+    public double getSum() {
         return sum;
     }
 
-    public void setSum(int sum) {
+    public void setSum(double sum) {
         this.sum = sum;
     }
 
-    public int getCommission() {
+    public double getCommission() {
         return commission;
     }
 
-    public void setCommission(int commission) {
+    public void setCommission(double commission) {
         this.commission = commission;
     }
 

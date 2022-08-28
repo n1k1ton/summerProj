@@ -1,5 +1,6 @@
 package buem.bol.summerproj.service.loger.impls;
 
+import buem.bol.summerproj.model.Agreement;
 import buem.bol.summerproj.model.Client;
 import buem.bol.summerproj.model.Logger;
 import buem.bol.summerproj.repository.loger.LoggerMongoRepository;
@@ -48,5 +49,8 @@ public class LoggerServiceImpl implements ILoggerService {
     @Override
     public List<Logger> getAll() {
         return repository.findAll();
+    }
+    public List<Logger> saveAll(List<Logger> loggers) {
+        return repository.saveAll(loggers);
     }
 }

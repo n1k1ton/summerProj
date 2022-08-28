@@ -73,8 +73,8 @@ public class ClientUIController {
         clientToUpdate.setActivity(form.getActivity());
         clientToUpdate.setAddress(form.getAddress());
         clientToUpdate.setPhoneNumber(form.getPhoneNumber());
-        clientToUpdate.setCreatedAt(LocalDateTime.now());
-        clientToUpdate.setUpdatedAt(LocalDateTime.now());
+        clientToUpdate.setCreatedAt(form.getCreatedAt());
+        clientToUpdate.setUpdatedAt(form.getUpdatedAt());
         service.update(clientToUpdate);
 
         return  "redirect:/ui/v1/clients/";

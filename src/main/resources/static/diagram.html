@@ -10,6 +10,7 @@
             display: flex;
             place-content: center;
         }
+
     </style>
 </head>
 <body>
@@ -33,48 +34,11 @@
         </div>
     </div>
 </header>
-<h1>Hello, items</h1>
-<div class="table-center">
-    <div class="table-center" style="width: 80%; display: flex; align-content: center">
-        <table class="table table-dark table-striped-columns">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>DESCRIPTION</th>
-                <th>CREATED AT</th>
-                <th>UPDATED AT</th>
-                <th>UPDATE</th>
-                <th>DELETE</th>
-            </tr>
-            </thead>
-            <tbody>
-            <#list items as item>
-                <tr>
-                    <td>${item.id}</td>
-                    <td>${item.name}</td>
-                    <td>${item.description}</td>
-                    <td>${item.createdAt}</td>
-                    <td>${item.updatedAt?if_exists}</td>
-                    <td>
-                        <a href="/ui/v1/items/edit/${item.id}">
-                            <button type="button" class="btn btn-warning">UPDATE</button>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/ui/v1/items/del/${item.id}">
-                            <button type="button" class="btn btn-danger">DELETE</button>
-                        </a>
-                    </td>
-                </tr>
-            </#list>
-            </tbody>
-        </table>
-        <br>
-    </div>
+<div class="d-flex justify-content-center">
+    <h1>UML diagram of classes</h1><br/>
 </div>
-<div class="table-center">
-    <a href="/ui/v1/items/add" class = "btn btn-success" style="width: 80%">CREATE</a>
+<div class="d-flex justify-content-center">
+    <img src="https://i.ibb.co/gTHnkbJ/diagram.png" alt="diagram" border="0">
 </div>
 
 </body>

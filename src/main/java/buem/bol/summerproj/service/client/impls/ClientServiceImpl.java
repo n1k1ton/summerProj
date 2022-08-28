@@ -1,6 +1,6 @@
 package buem.bol.summerproj.service.client.impls;
 import buem.bol.summerproj.model.Client;
-import buem.bol.summerproj.repository.clients.ClientMongoRepository;
+import buem.bol.summerproj.repository.client.ClientMongoRepository;
 import buem.bol.summerproj.service.client.interfaces.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

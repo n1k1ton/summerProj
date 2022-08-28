@@ -10,6 +10,14 @@
             display: flex;
             place-content: center;
         }
+        body {
+            background: url("https://t3.ftcdn.net/jpg/04/09/81/22/360_F_409812204_DB79pC30Mid4zQgUwEFOMbniRhzUUk2X.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+        .favors_heading{
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
     </style>
 </head>
 <body>
@@ -26,20 +34,20 @@
                 <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
                 <li><a href="/ui/v1/clients/" class="nav-link px-2 text-white">Clients</a></li>
                 <li><a href="/ui/v1/favors/" class="nav-link px-2 text-white">Favors</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Logs</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Agreement</a></li>
+                <li><a href="/ui/v1/loggers/" class="nav-link px-2 text-white">Logs</a></li>
+                <li><a href="/ui/v1/agreements/" class="nav-link px-2 text-white">Agreement</a></li>
                 <li><a href="/ui/v1/items/" class="nav-link px-2 text-white">Items</a></li>
             </ul>
         </div>
     </div>
 </header>
 <div class="table-center" style="display: flex; align-content: center">
-    <div class="h-100 p-5 text-bg-primary text-center" style="width: 100%">
+    <div class="h-100 p-5 text-bg-dark text-center border border-warning mt-5 agreement_heading favors_heading" style="width: 84%">
         <h2>FAVORS</h2>
     </div>
 </div>
 <div class="table-center">
-    <div class="table-center" style="width: 100%; display: flex; align-content: center">
+    <div class="table-center" style="width: 84%; display: flex; align-content: center">
         <table class="table table-primary table-striped-columns">
             <thead>
             <tr>
@@ -70,14 +78,16 @@
                     </td>
                 </tr>
             </#list>
+            <tr>
+                <td colspan="6"><a href="/ui/v1/favors/add" class="btn btn-primary" style="width: 100%">CREATE FAVOR</a>
+                </td>
+            </tr>
             </tbody>
         </table>
         <br>
     </div>
 </div>
-<div class="table-center">
-    <a href="/ui/v1/favors/add" class="btn btn-success" style="width: 100%">CREATE</a>
-</div>
+
 
 </body>
 </html>

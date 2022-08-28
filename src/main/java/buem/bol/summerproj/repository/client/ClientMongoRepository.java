@@ -1,4 +1,4 @@
-package buem.bol.summerproj.repository.clients;
+package buem.bol.summerproj.repository.client;
 
 import buem.bol.summerproj.model.Client;
 import org.springframework.data.mongodb.repository.MongoRepository;
